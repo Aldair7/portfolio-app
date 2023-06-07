@@ -1,5 +1,7 @@
+"use client";
 import { Fragment } from 'react'
 import { Transition } from '@headlessui/react'
+import Navbar from './nav.js'
  
 export default function hero() {
   return (
@@ -49,13 +51,13 @@ export default function hero() {
 	  </svg>
 	</div>
       </div>
-      <div>
-	<dynamicNav />
+      <div className="relative pt-6 pb-16 sm:pb-24">
+	<Navbar />
 	<main className="mx-auto mt-16 max-w-7xl px-4 sm:mt-24">
 	  <div className="text-center">
-	    <h1 className="text-4xl front-bold tracking-tight text-grat-900 sm:text-5xl md:text-6xl">
+	    <h1 className="text-4xl front-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
 	      <span className="block xl:inline">A Programmer with </span>{' '}
-	      <span className="bloxk text-indigo-600 xl:inline">`an Artist'Soul` </span>
+	      <span className="bloxk text-indigo-600 xl:inline"> an Artist's Soul </span>
 	    </h1>
 	    <p className="mx-auto mt-3 max-w-md text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
 	      Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
@@ -83,6 +85,6 @@ export default function hero() {
 	  </div>
 	</main>
       </div>
-    </div
+    </div>
   );
 }
