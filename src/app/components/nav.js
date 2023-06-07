@@ -1,69 +1,113 @@
 /* Navbar for my porfolio web (artistdevv) */
-
+"use client";
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicicons/react/24/outline'
+import { Popover, Transition } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline' 
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+const navigation = [
+  { name: 'Home', href: '#'},
+  { name: 'Dev Projects', href:'#'},
+  { name: 'Design Projects', href:'#'},
+  { name: 'About Me', href:'#'},
+  
+]
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
-    {({open}) => (
-      <>
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-	<div className="relative flex h-16 justify-between">
-	  <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-	    {/* menu button for mobile */}
-	    <Disclosure.Button className="inline-flex item-center justify-cente rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"> 
-	    <span className="sr-only">Open menu</span>
-	    {open ? (
-	      <XMarkIcon className="block h-6 w-6"  aria-hidden="true" />
-	    ) : ( 
-	      <Bars3Icon className="blosck h-6 w-6" aria-hidden="true" />
-	    )}
-	    </Disclosure.Button>
+    <>
+      
+<Popover>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
+              <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
+                <div className="flex w-full items-center justify-between md:w-auto">
+                  <a href="#">
+                    <span className="sr-only">My Logo</span>
+                    <img
+                      className="h-8 w-auto sm:h-10"
+                      src=""
+                      alt=""
+                    />
+                  </a>
+                  <div className="-mr-2 flex items-center md:hidden">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-gray-50 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span className="sr-only">Open main menu</span>
+                      <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                    </Popover.Button>
+                  </div>
+                </div>
+              </div>
+              <div className="hidden md:flex md:space-x-10">
+                {navigation.map((item) => (
+                  <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              <div className="hidden md:absolute md:inset-y-0 md:right-0 md:flex md:items-center md:justify-end">
+                <span className="inline-flex rounded-md shadow">
+                  <a
+                    href="#"
+                    className="inline-flex items-center rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-indigo-600 hover:bg-gray-50"
+                  >
+                    Hire Me!
+                  </a>
+                </span>
+              </div>
+            </nav>
+          </div>
 
-	  </div>
-	  <div className="flex flex-1 items-center justify-center sm:items-stretch sm:jutify-start">
-	    <div className="flex flex-shrink-0 items-center">
-	      <img className="block h-8 w-auto lg:hidden" src="" alt="My Logo" />
-	    </div>
-	    <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-	      <a href="#" className="inline-flec items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text=gray-900"> Home </a>
-	      <a href="#" className="inline-flex items-center boder-b-2 boder-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"> Dev Projects </a>
-	      <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"> Design Projects </a>
-	      <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"> About Me </a>
-	    </div>
-	  </div>
-	  <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-	    <button type="button" className="rounded-full bg-white p-1 text-gray-400 hover:text-grat-500 focus:outline-none focus:ring-offsite-2"> 
-	      Hire me!
-      {/*arreglar botton */}
-	    </button>
-	  </div>
-	</div>
-      </div>
-	<Disclosure.Panel className="sm:hidden">
-	  <div className="space-y-1 pt-2 pb-4">
-	    <Disclosure.Button as="a" href="#" className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"> 
-	      Home
-	    </Disclosure.Button>
-	    <Disclosure.Button as="a" href="#" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">
-	      Dev Projects
-	    </Disclosure.Button>
-	    <Disclosure.Button as="a" href="#" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">
-	      Design Projects
-	    </Disclosure.Button>
-	    <Disclosure.Button as="a" href="#" className="block border-l-4 border-transpatent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-7--">
-	      About Me
-	    </Disclosure.Button>
-	  </div>
-	</Disclosure.Panel>
-      </>
+          <Transition
+            as={Fragment}
+            enter="duration-150 ease-out"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="duration-100 ease-in"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            <Popover.Panel
+              focus
+              className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
+            >
+              <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+                <div className="flex items-center justify-between px-5 pt-4">
+                  <div>
+                    <img
+                      className="h-8 w-auto"
+                      src=""
+    
+                      alt=""
+                    />
+                  </div>
+                  <div className="-mr-2">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </Popover.Button>
+                  </div>
+                </div>
+                <div className="px-2 pt-2 pb-3">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+                <a
+                  href="#"
+                  className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
+                >
+                  Hire Me!
+                </a>
+              </div>
+            </Popover.Panel>
+          </Transition>
+        </Popover>
+   
+    </>
     )}
-  </Disclosure>
-  )
-}
