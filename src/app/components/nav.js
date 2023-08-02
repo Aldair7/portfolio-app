@@ -17,8 +17,8 @@ export default function Navbar() {
     <>
       
 <Popover>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <nav className="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
+          <div className="mx-auto max-w-7xl px-4  sm:px-6">
+            <nav className="sticky flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
               <div className="flex flex-1 items-center md:absolute md:inset-y-0 md:left-0">
                 <div className="flex w-full items-center justify-between md:w-auto">
                   <a href="#">
@@ -30,7 +30,7 @@ export default function Navbar() {
                     />
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-gray-50 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-white   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ebony">
                       <span className="sr-only">Open main menu</span>
                       <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -39,7 +39,7 @@ export default function Navbar() {
               </div>
               <div className="hidden md:flex md:space-x-10">
                 {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                  <a key={item.name} href={item.href} className="font-medium text-white">
                     {item.name}
                   </a>
                 ))}
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <span className="inline-flex rounded-md shadow">
                   <a
                     href="#"
-                    className="inline-flex items-center rounded-md border border-transparent bg-white px-4 py-2 text-base font-medium text-indigo-600 hover:bg-gray-50"
+                    className="inline-flex items-center rounded-md border-2 border-ebony bg-transparent px-4 py-2 text-base font-bold text-ebony hover:bg-amar hover:border-transparent"
                   >
                     Hire Me!
                   </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-ebony hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunglo">
                       <span className="sr-only">Close menu</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -100,7 +100,7 @@ export default function Navbar() {
                 </div>
                 <a
                   href="#"
-                  className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
+                  className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-ebony hover:bg-gray-100"
                 >
                   Hire Me!
                 </a>
